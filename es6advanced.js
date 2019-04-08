@@ -1,3 +1,5 @@
+//  ES5
+
 // let Product = function(name, price) {
 //   this.name = name;
 //   this.price = price;
@@ -19,6 +21,8 @@
 
 // const newElectronicProduct = new Electronic('speaker', 100, 'Sony');
 // newElectronicProduct.nameAndPrice();
+
+// ES6 Class
 
 class Product {
   constructor(name, price) {
@@ -43,4 +47,44 @@ class Electronic extends Product {
 }
 
 const newElectronicProduct = new Electronic('speaker', 100, 'Sony');
-newElectronicProduct.nameAndPrice();
+// newElectronicProduct.nameAndPrice();
+
+//  Arrow functions
+const add = function(a, b) {
+  return a + b;
+};
+
+// const add = (a, b) => {
+//   return a + b;
+// };
+
+class Counter {
+  constructor() {
+    this.count = 1;
+  }
+  countUp() {
+    console.log(this);
+    // setTimeout(function() {
+    //   console.log(this);
+    //   console.log(this.count++);
+    // }.bind(this), 1000);
+    setTimeout(() => {
+      console.log(this.count++);
+    }, 1000);
+  }
+}
+
+// let myCounter = new Counter();
+// myCounter.countUp();
+
+// Arrow functions don't rebind the value of this when used inside of another function
+
+const digits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+const evenNumbers = digits.filter(function(digit) {
+  console.log(digit);
+  return digit % 2 === 0;
+});
+console.log(evenNumbers);
+
+const evenNumbers = digits.filter(digit => digit % 2 === 0);
