@@ -124,13 +124,21 @@
 
 // Rest parameter
 function add(...arr) {
-  console.log(Array.isArray(arr));
   return arr.reduce(function(acc, val) {
     return acc + val;
   }, 0);
 }
-console.log(add(...[5, 4, 6]));
-console.log(add(5, 4, 6, 7, 8, 9, 10));
+// console.log(add(...[5, 4, 6]));
+// console.log(add(5, 4, 6, 7, 8, 9, 10));
+function showMovie(title, year, genre, ...actors) {
+  console.log(
+    `${title} was a ${genre} movie released in ${year} and in the cast are: ${
+      actors[0]
+    } and ${actors[1]}`
+  );
+}
+showMovie('Titanic', 1997, 'Drama', 'Leonardo Di Caprio', 'Kate Winslet');
+
 // In parameters, ... gathers the rest of the arguments into an array
 
 // Differences between var, let and const
